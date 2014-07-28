@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<header>
+  <a href="/">
+    <h1>Analytical Engine</h1>
+  </a>
+</header>
+
+<section>
+<article class="Article-capsule">
+<span class="Article-capsule--category">
+{{ page.categories | join " " }}
+</span>
+<h2>{{ content }}</h2>
+ <div class="Post--metadata">
+  <span class="Post--date">
+    <a href="{% if post.sourceurl %}{{ post.sourceurl }}{% else %}{{ post.url }}{% endif %}" {% if post.sourceurl %}target="_blank"{% endif %} class="Permalink"></a>
+    posted
+    <time datetime="{{ page.date | date: '%Y-%m-%d' }}">
+      {{ page.date | date: '%A %Y-%m-%d' }}
+    </time>
+  </span>
+  {% if page.tags.size > 0 %}
+    <span class="Post--tags">
+      {% for tag in page.tags %}
+        {{ tag }}
+      {% endfor %}
+    </span>
+  {% endif %}
+</div>
+</article>
+</section>
+
+
+<footer class="Paginator">
+  <a href="{{ site.baseurl }}">home</a>
+</footer>

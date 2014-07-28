@@ -1,0 +1,171 @@
+---
+---
+
+@import "vars";
+@import "icons";
+
+/* Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* /Reset */
+
+/* Baseline layout & type */
+body {
+  line-height: 1;
+  font-family: $body-family;
+  font-weight: 200;
+  background: $body-background;
+  color: $body-color;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+$line-height-base: 1.3;
+$font-modular-scale: 1.145;
+
+$h-font-size: 1rem;
+
+@for $i from 6 through 1 {
+    h#{$i} {
+		margin-top: $line-height-base * 1rem;
+        font-size: $h-font-size * $font-modular-scale;
+        font-family: $header-family;
+		line-height: ceil($h-font-size/($line-height-base * 1rem)) * $line-height-base * 1rem;
+    }
+    $h-font-size: $h-font-size * $font-modular-scale;
+}
+
+header {
+	margin-bottom: lines(3);
+}
+
+.BodyWrap {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+code {
+	font-family: $source-code-family;
+	font-size: 1rem;
+	line-height: lines(1);
+	border-radius: 2px;
+	box-shadow: 0 0 2px #666 inset;
+	padding: lines(0.5) 1rem;
+	display: block;
+	overflow-x: scroll;
+	@import 'code';
+}
+
+
+/* Entry styles */
+.Article-capsule {
+	position: relative;
+	margin-bottom: lines(6);
+	border-top: 1px solid $body-color;
+ &>h2 {
+	 margin-top: 0;
+	 &:first-line {
+		 text-decoration:overline;
+	 }
+ }
+ 
+ .Article-capsule--category {
+	position: absolute;
+	top: lines(-1);
+	right: 0;
+ }
+}
+
+.Post--metadata {
+	@include mJustifier;
+}
+
+.Post--tags {
+	@include mBubble;
+}
+
+.Post--date {
+	@include mBubble;
+}
+
+/* /Entry styles */
+
+/* Pagination */
+footer {
+	margin-top: lines(3);
+	border-top: 1px solid $body-color;
+}
+
+.Paginator {
+	position: relative;
+	@include mJustifier;
+	min-height: lines(2.5);
+	
+	a {
+		@include mBubble;
+	}
+	
+	h2 {
+		margin: 0;
+		position: absolute;
+		right: 0;
+		top: lines(0.25);
+	}
+}
+/* /Pagination */
+
+.Permalink {
+  &:before {
+	content: ' ';
+	display: inline-block;
+	height: 0.7rem;
+	width: 0.7rem;
+	background: $icon-permalink;
+    background-size: contain;
+    margin-right: 0.5rem;
+    background-repeat: no-repeat;
+
+  }
+}

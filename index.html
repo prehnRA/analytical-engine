@@ -1,0 +1,53 @@
+---
+layout: default
+title: Latest
+---
+
+<header>
+  <h1>
+    <a href="/">
+      Analytical Engine
+    </a>
+  </h1>
+</header>
+
+<section>
+{% for post in paginator.posts %}
+  <article class="Article-capsule">
+    <span class="Article-capsule--category">
+    {{ post.categories | join " " }}
+    </span>
+    <h2>{{ post.content }}</h2>
+     <div class="Post--metadata">
+      <span class="Post--date">
+        <a href="{% if post.sourceurl %}{{ post.sourceurl }}{% else %}{{ post.url }}{% endif %}" {% if post.sourceurl %}target="_blank"{% endif %} class="Permalink"></a>
+        posted
+        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
+          {{ post.date | date: '%A %Y-%m-%d' }}
+        </time>
+      </span>
+      {% if post.tags.size > 0 %}
+        <span class="Post--tags">
+          {% for tag in post.tags %}
+            {{ tag }}
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+  </article>
+{% endfor %}
+</section>
+
+
+<footer class="Paginator">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}">previous page</a>
+  {% else %}
+    <span>&nbsp;</span>
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}">next page</a>
+  {% else %}
+    <h2>the end</h2>
+  {% endif %}
+</footer>
