@@ -17,7 +17,7 @@ title: Latest
     <span class="Article-capsule--category">
     {{ post.categories | join " " }}
     </span>
-    <h2>{{ post.content }}</h2>
+    <div class="Article-capsule--body">{{ post.content }}</div>
      <div class="Post--metadata">
       <span class="Post--date">
         <a href="{% if post.sourceurl %}{{ post.sourceurl }}{% else %}{{ post.url }}{% endif %}" {% if post.sourceurl %}target="_blank"{% endif %} class="Permalink"></a>

@@ -13,7 +13,7 @@ layout: default
 <span class="Article-capsule--category">
 {{ page.categories | join " " }}
 </span>
-<h2>{{ content }}</h2>
+ <div class="Article-capsule--body">{{ content }}</div>
  <div class="Post--metadata">
   <span class="Post--date">
     <a href="{% if post.sourceurl %}{{ post.sourceurl }}{% else %}{{ post.url }}{% endif %}" {% if post.sourceurl %}target="_blank"{% endif %} class="Permalink"></a>
