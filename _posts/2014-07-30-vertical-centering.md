@@ -15,6 +15,4 @@ Sebastian Ekström shows us three lines for vertically centering anything in CSS
 }
 ```
 
-i'd [solve it with flexbox][flexbox] (prefixed support about the same, better unprefixed support)
-
-[flexbox]: http://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
+i'd <a href="http://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/" target="_blank">solve it with flexbox</a> (prefixed support about the same, better unprefixed support)
