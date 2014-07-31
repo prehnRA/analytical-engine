@@ -3,3 +3,4 @@ markdown: redcarpet
 pygments: true
 paginate: 7
 baseurl: /
+url: http://analyticalengine.co
