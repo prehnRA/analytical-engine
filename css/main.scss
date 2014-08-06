@@ -6,7 +6,7 @@
 
 /* Reset */
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -14,44 +14,43 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 /* /Reset */
 
 $body-font-weight: 200;
 $line-height-base: 1.3;
 $font-modular-scale: 1.145;
-
-$h-font-size: 1rem;
 
 /* Baseline layout & type */
 body {
@@ -69,21 +68,24 @@ a {
 
 
 p {
-	margin-bottom: lines(1);
+  margin: 0;
+  margin-bottom: lines(1);
 }
 
-@for $i from 6 through 1 {
+$h-font-size: 2rem;
+@for $i from 1 through 6 {
     h#{$i} {
-		margin-top: $line-height-base * 1rem;
-        font-size: $h-font-size * $font-modular-scale;
-        font-family: $header-family;
-		line-height: ceil($h-font-size/($line-height-base * 1rem)) * $line-height-base * 1rem;
+      margin-top: $line-height-base * 1rem;
+      font-size: $h-font-size;
+      font-family: $header-family;
+      line-height: ceil($h-font-size/($line-height-base * 1rem)) * $line-height-base * 1rem;
+      font-weight: 700;
     }
-    $h-font-size: $h-font-size * $font-modular-scale;
+    $h-font-size: $h-font-size / $font-modular-scale;
 }
 
 header {
-	margin-bottom: lines(3);
+  margin-bottom: lines(3);
 }
 
 .BodyWrap {
@@ -93,86 +95,86 @@ header {
 }
 
 code {
-	font-family: $source-code-family;
-	font-size: 1rem;
-	line-height: lines(1);
-	border-radius: 2px;
-	box-shadow: 0 0 2px #666 inset;
-	padding: lines(0.5) 1rem;
-	margin-bottom: lines(1);
-	display: block;
-	overflow-x: scroll;
-	@import 'code';
+  font-family: $source-code-family;
+  font-size: 1rem;
+  line-height: lines(1);
+  border-radius: 2px;
+  box-shadow: 0 0 2px #666 inset;
+  padding: lines(0.5) 1rem;
+  margin-bottom: lines(1);
+  display: block;
+  overflow-x: scroll;
+  @import 'code';
 }
 
 
 /* Entry styles */
 .Article-capsule {
-	.Article-capsule--body {
-		font-size: 1rem * $font-modular-scale * $font-modular-scale;
-		font-weight: bold;
-		font-family: $header-family;
-		margin-top: 0.1875rem;
-	    &:first-line {
-		  text-decoration:overline;
-	    }
-	}
-	position: relative;
-	margin-bottom: lines(6);
-	border-top: 1px solid $body-color;
- 
+  .Article-capsule--body {
+    font-size: 1rem * $font-modular-scale * $font-modular-scale;
+    font-weight: bold;
+    font-family: $header-family;
+    margin-top: 0.1875rem;
+      &:first-line {
+      text-decoration:overline;
+      }
+  }
+  position: relative;
+  margin-bottom: lines(6);
+  border-top: 1px solid $body-color;
+
  .Article-capsule--category {
-	position: absolute;
-	top: lines(-1);
-	right: 0;
+  position: absolute;
+  top: lines(-1);
+  right: 0;
  }
 }
 
 .Post--metadata.Post--metadata {
-	@include mJustifier;
+  @include mJustifier;
 }
 
 .Post--tags {
-	@include mBubble;
+  @include mBubble;
 }
 
 .Post--date {
-	@include mBubble;
+  @include mBubble;
 }
 
 /* /Entry styles */
 
 /* Pagination */
 footer {
-	margin-top: lines(3);
-	border-top: 1px solid $body-color;
+  margin-top: lines(3);
+  border-top: 1px solid $body-color;
 }
 
 .Paginator {
-	position: relative;
-	@include mJustifier;
-	min-height: lines(2.5);
-	
-	a {
-		@include mBubble;
-	}
-	
-	h2 {
-		margin: 0;
-		position: absolute;
-		right: 0;
-		top: lines(0.25);
-	}
+  position: relative;
+  @include mJustifier;
+  min-height: lines(2.5);
+
+  a {
+    @include mBubble;
+  }
+
+  h2 {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: lines(0.25);
+  }
 }
 /* /Pagination */
 
 .Permalink {
   &:before {
-	content: ' ';
-	display: inline-block;
-	height: 0.7rem;
-	width: 0.7rem;
-	background: $icon-permalink;
+  content: ' ';
+  display: inline-block;
+  height: 0.7rem;
+  width: 0.7rem;
+  background: $icon-permalink;
     background-size: contain;
     margin-right: 0.5rem;
     background-repeat: no-repeat;
