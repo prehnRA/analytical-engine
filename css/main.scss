@@ -144,6 +144,20 @@ code {
 
 /* /Entry styles */
 
+blockquote {
+  font-weight: 300;
+  font-family: $body-family;
+  background: $bubble-background;
+  max-width: 34rem;
+  padding: lines(0.5) 1rem;
+
+  border-left: 4px solid darken($bubble-background, 10%);
+  attribution {
+    font-weight: bold;
+    color: $link-color;
+  }
+}
+
 /* Pagination */
 footer {
   margin-top: lines(3);
