@@ -72,6 +72,10 @@ p {
   margin-bottom: lines(1);
 }
 
+em {
+  font-style: italic;
+}
+
 $h-font-size: 2rem;
 @for $i from 1 through 6 {
     h#{$i} {
