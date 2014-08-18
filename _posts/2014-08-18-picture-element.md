@@ -8,4 +8,4 @@ the current state of
   responsive images
 </a>
 
-in summary, you can start using <picture> and picturefill today.
+in summary, you can start using &lt;picture&gt; and picturefill today.
