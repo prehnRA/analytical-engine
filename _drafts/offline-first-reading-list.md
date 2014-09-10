@@ -1,6 +1,7 @@
 ---
 layout: post
 sourceurl: https://github.com/pazguille/offline-first
+queued: true
 ---
 
 don't know about offline first web apps?
